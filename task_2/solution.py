@@ -24,7 +24,6 @@ class TODO(object):
     __separator = ';'
 
     def addItem(self):
-
         item = input(f'Введіть задачу, яку потрібно виконати\n(Якщо ви хочете добавити декілька використовуйте {self.__separator} як знак розділення)\n')
         os.system('cls')
 
@@ -64,7 +63,7 @@ class TODO(object):
         self.__cursor.execute(f'update {self.__ToDoTable} set IsDone = 1 where ItemId = {id}')
         self.__cursor.execute(f"insert into {self.__DoneTable} (ItemId,[Date]) values ({str(id)},'{str(date.today()).replace('-','.')}')")
         self.__cursor.commit()
-        
+
         print("Дані успішно редаговано!")
 
     def showDoneItems(self):
